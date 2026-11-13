@@ -1,0 +1,143 @@
+PERSONAL MINI-TOOLKIT - PLAN
+
+Student Project - PLP Python Week 8 Final Project
+Goal: Build a menu-driven program with useful tools in one place.
+
+1. TOOLS I CHOSE (4 Tools)
+
+I chose 4 tools so I have more than the minimum of 3 required.
+
+Tool 1: To-Do List Manager
+- One sentence: Lets the user add tasks, view all tasks, and remove a task they have finished.
+- What it does in detail: The user can add as many tasks as they want, see them numbered in a list, and delete one by its number.
+
+Tool 2: Expense Tracker
+- One sentence: Lets the user add expenses and see the total amount of money spent.
+- What it does in detail: The user enters what they bought and how much it cost, the program stores it and adds up the total.
+
+Tool 3: Grade Calculator
+- One sentence: Takes a score from 0 to 100 and tells the user their grade (A, B, C, D, or F).
+- What it does in detail: The user enters a score, the program uses conditionals to decide the grade and gives a friendly message.
+
+Tool 4: Password Generator
+- One sentence: Creates a random strong password of the length the user chooses.
+- What it does in detail: The user enters a length like 8 or 12, the program builds a random password using letters, numbers, and symbols.
+
+2. EXACT MENU TEXT MY PROGRAM WILL SHOW
+
+This is the exact text that will appear when the program runs:
+
+   🧰  MY PERSONAL MINI-TOOLKIT
+
+1. To-Do List Manager
+2. Expense Tracker
+3. Grade Calculator
+4. Password Generator
+5. Quit
+
+Choose an option (1-5):
+
+After choosing a tool, each tool has its own small menu:
+
+TO-DO LIST SUB-MENU:
+To-Do Menu:
+a. Add a task
+b. View all tasks
+c. Remove a task
+d. Back to Main Menu
+Choose a, b, c or d:
+
+EXPENSE TRACKER SUB-MENU:
+Expense Menu:
+a. Add an expense
+b. View all expenses and total
+c. Back to Main Menu
+Choose a, b or c:
+
+GRADE CALCULATOR:
+Enter your score (0 - 100):
+
+PASSWORD GENERATOR:
+How long should the password be? (e.g. 8, 12):
+
+QUIT MESSAGE:
+Thank you for using the Mini-Toolkit. Goodbye!
+
+INVALID CHOICE MESSAGE:
+Invalid choice. Please enter a number from 1 to 5.
+
+3. CONCEPTS EACH TOOL WILL USE
+
+
+Tool 1: To-Do List Manager
+- List: YES - todo_list = [] to store all tasks
+- Loop: YES - while True loop for sub-menu, for loop to display tasks with numbers
+- Conditional: YES - if / elif / else to check if user chose a, b, c, or d
+- f-string: YES - f"{i}. {task}" to print numbered tasks
+- Input/Output: YES - input() to get task, print() to show tasks
+- Variables: task, choice
+
+Tool 2: Expense Tracker
+- List: YES - expense_names = [] and expense_amounts = [] to store data
+- Loop: YES - while True for sub-menu, for loop to add up total
+- Conditional: YES - if / elif / else for menu, if amount < 0 to check invalid
+- f-string: YES - f"{name} - ${amount:.2f}" and f"TOTAL SPENT: ${total:.2f}"
+- Input/Output: YES - input() for name and amount
+- Variables: expense_name, expense_amount, total
+
+Tool 3: Grade Calculator
+- List: NO - does not need a list, it only checks one score at a time
+- Loop: NO - runs once per use, then returns to main menu (main menu loop handles repeat)
+- Conditional: YES - MAIN CONCEPT - if / elif / else chain: >=90 = A, >=80 = B, >=70 = C, >=60 = D, else = F
+- f-string: YES - f"Your grade is {grade}"
+- Input/Output: YES - input() for score, print() for grade
+- Variables: score, grade
+- Try/Except: YES - to stop crash if user types a letter instead of a number
+
+Tool 4: Password Generator
+- List: NO - uses a string of characters, not a list
+- Loop: YES - for loop to build password character by character: for i in range(length)
+- Conditional: YES - if length < 4, show warning
+- f-string: YES - f"Your new password is: {password}"
+- Input/Output: YES - input() for length, print() for password
+- Variables: length, characters, password
+- Library: random and string
+
+Main Program (All Tools Together)
+- Loop: YES - while True main menu loop that runs until user quits
+- Conditional: YES - if / elif / else to route choice 1, 2, 3, 4, 5
+- Functions: YES - show_menu(), todo_tool(), expense_tool(), grade_tool(), password_tool(), main()
+- Break: YES - break when user chooses 5 to quit
+
+4. DATA I WILL STORE
+
+- todo_list = [] - Example: ["Do homework", "Buy milk", "Call mum"]
+- expense_names = [] - Example: ["Lunch", "Bus"]
+- expense_amounts = [] - Example: [5.50, 2.00]
+- score = 0 - Example: 85
+- grade = "" - Example: "B"
+- length = 8 - Example: 12 for password
+
+5. EDGE CASES I THOUGHT ABOUT
+
+1. If user types a letter instead of a number for menu or score - Use try/except to show "Please enter a number" instead of crashing.
+2. If to-do list is empty and user tries to view or remove - Show "Your to-do list is empty."
+3. If user tries to remove task number 99 that does not exist - Check if 1 <= num <= len(todo_list), else show "Invalid number."
+4. If user enters score 150 or -10 - Show "Invalid score. Must be between 0 and 100."
+5. If user asks for password length 2 - Show "Password should be at least 4 characters."
+6. If user enters empty task "" - Show "Task cannot be empty."
+7. If user enters negative expense - Show "Amount cannot be negative."
+8. If user chooses menu option 99 - Show "Invalid choice" and show menu again, do not crash.
+
+6. HOW I WILL TEST (Before Submitting)
+
+Test 1 - To-Do: Add "Do homework" and "Buy milk", view them (should show 2), remove 1, view again (should show 1 left).
+Test 2 - Expense: Add Lunch $5.50 and Bus $2.00, view total (should be $7.50).
+Test 3 - Grade: Enter 95 (should be A), 75 (should be B), 55 (should be D/F), 150 (should be Invalid).
+Test 4 - Password: Enter 8 (should give 8 characters), enter 2 (should give warning).
+Test 5 - Invalid: Enter 99 in main menu (should show invalid, not crash).
+Test 6 - Quit: Enter 5 (should print Goodbye and stop program).
+
+7. WHY I CHOSE THESE TOOLS
+
+I chose these 4 tools because together they use ALL the concepts we learned: lists (To-Do, Expense), conditionals (Grade), loops (Password, Main Menu), and f-strings (all tools). They are also tools a real person would actually use every day.
